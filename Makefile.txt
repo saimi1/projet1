@@ -1,0 +1,22 @@
+
+# définition des variables utilise pour la compilation
+C= g++
+SRC= sansThread.cpp
+SRC1=Thread.cpp
+EXEC= fractale
+EXEC2=fractaleThread 
+SUP=rm -rf
+FLAGS=-lopencv_core -lopencv_highgui -lopencv_imgproc -std=c++11 -lpthread
+all:	
+
+	$(C) -Wall $(SRC) -o $(EXE) $(FLAGS)
+	./julia
+compile:
+	$(C) -Wall $(SRC1) -o $(EXE1) $(FLAGS)
+
+	./thread
+
+mrproper:clean
+	$(SUP) *.o
+clean:
+	 $(SUP) *.o
